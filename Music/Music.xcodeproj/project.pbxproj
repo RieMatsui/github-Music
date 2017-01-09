@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		183449A61E20AD4100874E1B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183449A51E20AD4000874E1B /* QuartzCore.framework */; };
+		1856F2381E2211F3003508B5 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1856F2371E2211F3003508B5 /* background.jpg */; };
 		18AA658D1E2076B000E70627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA658C1E2076B000E70627 /* AppDelegate.swift */; };
 		18AA658F1E2076B000E70627 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA658E1E2076B000E70627 /* ViewController.swift */; };
 		18AA65921E2076B000E70627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AA65901E2076B000E70627 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		183449A51E20AD4000874E1B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1856F2371E2211F3003508B5 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		18AA65891E2076B000E70627 /* Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AA658C1E2076B000E70627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AA658E1E2076B000E70627 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		18AA659E1E2076D800E70627 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				1856F2371E2211F3003508B5 /* background.jpg */,
 				18AA65A11E20773800E70627 /* Brand_New_Heavies_Shelter.jpg */,
 				18AA659F1E20770B00E70627 /* YouAreTheUniverseBrandNewHeavies.mp3 */,
 			);
@@ -156,6 +159,7 @@
 				18AA65A21E20773800E70627 /* Brand_New_Heavies_Shelter.jpg in Resources */,
 				18AA65A01E20770B00E70627 /* YouAreTheUniverseBrandNewHeavies.mp3 in Resources */,
 				18AA65971E2076B000E70627 /* LaunchScreen.storyboard in Resources */,
+				1856F2381E2211F3003508B5 /* background.jpg in Resources */,
 				18AA65941E2076B000E70627 /* Assets.xcassets in Resources */,
 				18AA65921E2076B000E70627 /* Main.storyboard in Resources */,
 			);

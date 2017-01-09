@@ -15,6 +15,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 	@IBOutlet weak var slSwichMusic: UISwitch!
 	@IBOutlet weak var imgvMusic: UIImageView!
 	@IBOutlet weak var slMusicSize: UISlider!
+	@IBOutlet weak var lbTime: UILabel!
+	
+	@IBOutlet weak var lbStart: UILabel!
+	@IBOutlet weak var lbRate: UILabel!
+
+	//タイマーを追加
+	var timer = Timer()
 
 	//フィールドを作成、AVAudioPlayerオブジェクト
 	var Music01:AVAudioPlayer!
@@ -42,6 +49,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 //		Music01.play()
 		
 		initMusic()
+		imgvMusic.layer.masksToBounds = true
+		imgvMusic.layer.cornerRadius = 40.0
+		
+		lbStart.layer.masksToBounds = true
+		lbStart.layer.cornerRadius = 10.0
+		
+		lbRate.layer.masksToBounds = true
+		lbRate.layer.cornerRadius = 10.0
+		
+		lbTime.layer.masksToBounds = true
+		lbTime.layer.cornerRadius = 10.0
 
 
 	}
@@ -90,12 +108,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 		//アニメーション開始の処理
 		animateStart(target: imgvMusic, key: "Move")
 		
+		//タイマーを設定
+		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updatePlayingTime), userInfo: nil, repeats: true)
 		}
 		
 	    //停止
 		else{
 			
+			//タイマーをストップ
+			timer.invalidate()
+			
 			Music01.stop()
+			lbTime.text = "0:00"
+			
+			
 			
 		//アニメーション停止処理
 			Music01.prepareToPlay()
@@ -116,10 +142,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 	
 	}
 	
-	//再生場所の設定
+	//再生場所変更
 	@IBAction func musicSizeChange(_ sender: UISlider) {
+		
+		//スライドするたびに再生場所を変更
 		Music01.currentTime = TimeInterval(sender.value)
+		
+		//タイマーをsliderに設定
+		self.updatePlayingTime()
 
+		
 	}
 	
 	// MARK: - オリジナル・メソッド
@@ -175,8 +207,27 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 		// アニメーション削除
 		target.layer.removeAnimation(forKey: key)
 	}
+	
+	func updatePlayingTime() {
+		slMusicSize.value = Float(Music01.currentTime)
+		
+		let str = Music01.currentTime
+		let str02 = floor(str)
+		let str03 = Int(str02)
+		let str04 = str03 % 60
+		let str05 = str03 / 60
+		
+		if str04 < 10 {
+			lbTime.text = String("\(str05)" + ":" +  "0\(str04)")
+		}
+			
+		else{
+			lbTime.text = String("\(str05)" + ":" +  "\(str04)")
+		}
+		
+	}
 
-
+	
 
 }
 
